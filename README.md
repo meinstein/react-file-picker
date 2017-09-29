@@ -11,7 +11,7 @@ A simple wrapper around the native file input
 ## Examples
 
 ```js
-import { FilePicker, ImagePicker } from 'react-file-picker'
+import { FilePicker } from 'react-file-picker'
 
 const MyComponent = () => (
   <FilePicker
@@ -27,7 +27,7 @@ const MyComponent = () => (
 ```
 
 ```js
-import { PickImage } from 'react-file-picker'
+import { ImagePicker } from 'react-file-picker'
 
 const MyComponent = () => (
   <ImagePicker
