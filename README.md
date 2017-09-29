@@ -1,5 +1,9 @@
 # react-file-picker
 
+[![Build Status](https://travis-ci.org/meinstein/react-file-picker.svg?branch=master)](https://travis-ci.org/meinstein/react-file-picker)
+[![Coverage Status](https://coveralls.io/repos/github/meinstein/react-file-picker/badge.svg?branch=master)](https://coveralls.io/github/meinstein/react-file-picker?branch=master)
+[![npm](https://img.shields.io/npm/v/react-file-picker.svg)](https://www.npmjs.com/package/react-file-picker)
+
 A simple wrapper around the native file input
 
 `npm i react-file-picker`
@@ -7,10 +11,10 @@ A simple wrapper around the native file input
 ## Examples
 
 ```js
-import { PickFile } from 'react-file-picker'
+import { FilePicker, ImagePicker } from 'react-file-picker'
 
 const MyComponent = () => (
-  <PickFile
+  <FilePicker
     extensions={['md']}
     onChange={FileObject => (/* do something with File object */)}
     onError={errMsg => (/* do something with err msg string */)
@@ -18,7 +22,7 @@ const MyComponent = () => (
     <button>
       Click to upload markdown
     </button>
-  </PickFile>
+  </FilePicker>
 )
 ```
 
@@ -26,7 +30,7 @@ const MyComponent = () => (
 import { PickImage } from 'react-file-picker'
 
 const MyComponent = () => (
-  <PickImage
+  <ImagePicker
     extensions={['jpg', 'jpeg', 'png']}
     dims={{minWidth: 100, maxWidth: 500, minHeight: 100, maxHeight: 500}}
     onChange={base64 => (/* do something with base64 encoded string */)
@@ -35,6 +39,6 @@ const MyComponent = () => (
     <button>
       Click to upload image
     </button>
-  </PickImage>
+  </ImagePicker>
 )
 ```
