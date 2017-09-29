@@ -1,0 +1,77 @@
+{
+  "name": "react-file-picker",
+  "version": "0.0.1",
+  "description": "A simple wrapper around the native file input",
+  "main": "index.js",
+  "module": "lib/index.js",
+  "scripts": {
+    "build": "webpack --config config/webpack.js",
+    "build:prod": "NODE_ENV=production npm run build",
+    "build:lib": "babel src --out-dir lib",
+    "clean": "rm -rf index.* lib/",
+    "dev": "NODE_ENV=dev webpack-dev-server --inline --hot --config config/webpack.js",
+    "lint": "eslint src/**/*.js",
+    "prepublish": "npm run build:prod",
+    "test": "NODE_ENV=test jest",
+    "test:watch": "npm run test -- --watch",
+    "test:coverage": "npm run test -- --coverage",
+    "test:coverage:report": "npm run test:coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/meinstein/react-file-picker"
+  },
+  "keywords": [
+    "react",
+    "file",
+    "input"
+  ],
+  "author": "Maximillian Einstein",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.16.0",
+    "babel-eslint": "^7.2.3",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-1": "^6.16.0",
+    "babel-register": "^6.23.0",
+    "coveralls": "^2.13.1",
+    "css-loader": "^0.28.4",
+    "enzyme": "^2.8.2",
+    "eslint": "^4.0.0",
+    "eslint-loader": "^1.8.0",
+    "eslint-plugin-babel": "^4.1.1",
+    "eslint-plugin-jest": "^20.0.3",
+    "eslint-plugin-react": "^7.1.0",
+    "html-webpack-plugin": "^2.28.0",
+    "jest": "^20.0.4",
+    "node-sass": "^4.5.3",
+    "npm": "^5.0.3",
+    "prop-types": "^15.5.10",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-hot-loader": "next",
+    "react-test-renderer": "^15.6.1",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
+    "webpack": "^2.6.1",
+    "webpack-dev-server": "^2.4.5"
+  },
+  "jest": {
+    "testRegex": "(/src/.*test\\.js)$",
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/config/__mocks__/fileMock.js",
+      "\\.(css|scss)$": "<rootDir>/config/__mocks__/styleMock.js"
+    },
+    "modulePaths": [
+      "<rootDir>/src"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0"
+  }
+}
