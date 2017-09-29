@@ -1,6 +1,6 @@
 {
   "name": "react-file-picker",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A simple wrapper around the native file input",
   "main": "index.js",
   "module": "lib/index.js",
