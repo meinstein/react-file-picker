@@ -1,6 +1,6 @@
 {
   "name": "react-file-picker",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A simple wrapper around the native file input",
   "main": "index.js",
   "module": "lib/index.js",
@@ -15,14 +15,17 @@
     "test": "NODE_ENV=test jest",
     "test:watch": "npm run test -- --watch",
     "test:coverage": "npm run test -- --coverage",
-    "test:coverage:report":
-      "npm run test:coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+    "test:coverage:report": "npm run test:coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/meinstein/react-file-picker.git"
   },
-  "keywords": ["react", "file", "input"],
+  "keywords": [
+    "react",
+    "file",
+    "input"
+  ],
   "author": "Maximillian Einstein",
   "license": "MIT",
   "devDependencies": {
@@ -59,11 +62,14 @@
   "jest": {
     "testRegex": "(/src/.*test\\.js)$",
     "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
-        "<rootDir>/config/__mocks__/fileMock.js",
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/config/__mocks__/fileMock.js",
       "\\.(css|scss)$": "<rootDir>/config/__mocks__/styleMock.js"
     },
-    "modulePaths": ["<rootDir>/src"],
-    "coveragePathIgnorePatterns": ["/node_modules/"]
+    "modulePaths": [
+      "<rootDir>/src"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
   }
 }
