@@ -2,7 +2,7 @@
   "name": "react-file-picker",
   "version": "0.0.5",
   "description": "A simple wrapper around the native file input",
-  "main": "index.js",
+  "main": "lib/index.js",
   "module": "lib/index.js",
   "scripts": {
     "build": "webpack --config config/webpack.js",
