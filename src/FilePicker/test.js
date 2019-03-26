@@ -15,10 +15,7 @@ describe('File Picker', () => {
 
   test('returns a valid component with required props', () => {
     const ele = (
-      <FilePicker
-        onChange={() => ({})}
-        onError={() => ({})}
-      >
+      <FilePicker onChange={() => ({})} onError={() => ({})}>
         <button>Click to upload</button>
       </FilePicker>
     )
@@ -29,16 +26,13 @@ describe('File Picker', () => {
   test('call error handler when no file uploaded', () => {
     // mount the select with a few options
     const wrapper = mount(
-      <FilePicker
-        onChange={onChange}
-        onError={onError}
-      >
+      <FilePicker onChange={onChange} onError={onError}>
         <div>Click here</div>
       </FilePicker>
     )
 
     // trigger the onChange callback on file input
-    wrapper.find('input').simulate('change', {target: {files: []}})
+    wrapper.find('input').simulate('change', { target: { files: [] } })
 
     expect(onError.mock.calls.length).toBe(1)
     expect(onChange.mock.calls.length).toBe(0)
@@ -47,20 +41,16 @@ describe('File Picker', () => {
   test('call error handler when a file with incorrect extension is uploaded', () => {
     // mount the select with a few options
     const wrapper = mount(
-      <FilePicker
-        onChange={onChange}
-        onError={onError}
-        extensions={['md']}
-      >
+      <FilePicker onChange={onChange} onError={onError} extensions={['md']}>
         <div>Click here</div>
       </FilePicker>
     )
 
-    const file = new Blob(['file contents'], {type: 'text/plain'})
-    file.name = "file.txt"
+    const file = new Blob(['file contents'], { type: 'text/plain' })
+    file.name = 'file.txt'
 
     // trigger the onChange callback on file input
-    wrapper.find('input').simulate('change', {target: {files: [file]}})
+    wrapper.find('input').simulate('change', { target: { files: [file] } })
 
     expect(onError.mock.calls.length).toBe(1)
     expect(onChange.mock.calls.length).toBe(0)
@@ -79,10 +69,10 @@ describe('File Picker', () => {
       </FilePicker>
     )
 
-    const file = new Blob(['file contents'], {type: 'text/plain'})
+    const file = new Blob(['file contents'], { type: 'text/plain' })
 
     // trigger the onChange callback on file input
-    wrapper.find('input').simulate('change', {target: {files: [file]}})
+    wrapper.find('input').simulate('change', { target: { files: [file] } })
 
     expect(onError.mock.calls.length).toBe(1)
     expect(onChange.mock.calls.length).toBe(0)
@@ -101,11 +91,11 @@ describe('File Picker', () => {
       </FilePicker>
     )
 
-    const file = new Blob(['file contents'], {type: 'text/plain'})
+    const file = new Blob(['file contents'], { type: 'text/plain' })
     file.name = 'file.txt'
 
     // trigger the onChange callback on file input
-    wrapper.find('input').simulate('change', {target: {files: [file]}})
+    wrapper.find('input').simulate('change', { target: { files: [file] } })
 
     expect(onError.mock.calls.length).toBe(0)
     expect(onChange.mock.calls.length).toBe(1)

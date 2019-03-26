@@ -7,7 +7,7 @@ import ImagePicker from '.'
 describe('Image File Input', () => {
   let onChange
   let onError
-  const dims = {minWidth: 0, maxWidth: 10, minHeight: 0, maxHeight: 10}
+  const dims = { minWidth: 0, maxWidth: 10, minHeight: 0, maxHeight: 10 }
 
   beforeEach(() => {
     onChange = jest.fn()
@@ -16,11 +16,7 @@ describe('Image File Input', () => {
 
   test('returns a valid component with required props', () => {
     const ele = (
-      <ImagePicker
-        onChange={() => ({})}
-        onError={() => ({})}
-        dims={dims}
-      >
+      <ImagePicker onChange={() => ({})} onError={() => ({})} dims={dims}>
         <button>Click to upload</button>
       </ImagePicker>
     )
@@ -31,17 +27,13 @@ describe('Image File Input', () => {
   test('call the error handler when no image uploaded', () => {
     // mount the select with a few options
     const wrapper = mount(
-      <ImagePicker
-        onChange={onChange}
-        onError={onError}
-        dims={dims}
-      >
+      <ImagePicker onChange={onChange} onError={onError} dims={dims}>
         <div>Click here</div>
       </ImagePicker>
     )
 
     // trigger the onChange callback on file input
-    wrapper.find('input').simulate('change', {target: {files: []}})
+    wrapper.find('input').simulate('change', { target: { files: [] } })
 
     expect(onError.mock.calls.length).toBe(1)
     expect(onChange.mock.calls.length).toBe(0)

@@ -1,9 +1,8 @@
-// external imports
 import React from 'react'
-// internal imports
-import { FilePicker, ImagePicker } from '../src'
 
-const App = () => (
+import { FilePicker, ImagePicker } from '../lib'
+
+const Demo = () => (
   <div>
     <FilePicker
       extensions={['md']}
@@ -12,9 +11,10 @@ const App = () => (
     >
       <button>Click to upload markdown</button>
     </FilePicker>
+    <br />
     <ImagePicker
       extensions={['jpg', 'jpeg', 'png']}
-      dims={{minWidth: 100, maxWidth: 500, minHeight: 100, maxHeight: 500}}
+      dims={{ minWidth: 100, maxWidth: 500, minHeight: 100, maxHeight: 500 }}
       onChange={base64EncodedString => console.log(base64EncodedString)}
       onError={errMsg => console.log(errMsg)}
     >
@@ -23,4 +23,4 @@ const App = () => (
   </div>
 )
 
-export default App
+export default Demo

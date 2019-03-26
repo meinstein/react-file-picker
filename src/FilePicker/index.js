@@ -5,31 +5,14 @@ import PropTypes from 'prop-types'
 import FileInput from '../FileInput'
 
 class FilePicker extends React.Component {
+  constructor(props) {
+    super(props)
 
-  static propTypes = {
-    children: PropTypes.node.isRequired,
-    onChange: PropTypes.func.isRequired,
-    onError: PropTypes.func.isRequired,
-    // max file size in MB
-    maxSize: PropTypes.number,
-    // file extension
-    extensions: PropTypes.array,
-    // validate file contents
-    validateContent: PropTypes.func,
-    style: PropTypes.object
+    this._validate = this._validate.bind(this)
   }
 
-  static defaultProps = {
-    maxSize: 2
-  }
-
-  _validate = file => {
-    const {
-      onError,
-      onChange,
-      maxSize,
-      extensions
-    } = this.props
+  _validate(file) {
+    const { onError, onChange, maxSize, extensions } = this.props
 
     // make sure a file was provided in the first place
     if (!file) {
@@ -39,8 +22,13 @@ class FilePicker extends React.Component {
 
     // if we care about file extensions
     if (extensions) {
-      const uploadedFileExt = file.name.split('.').pop().toLowerCase()
-      const isValidFileExt = extensions.map(ext => ext.toLowerCase()).includes(uploadedFileExt)
+      const uploadedFileExt = file.name
+        .split('.')
+        .pop()
+        .toLowerCase()
+      const isValidFileExt = extensions
+        .map(ext => ext.toLowerCase())
+        .includes(uploadedFileExt)
 
       if (!isValidFileExt) {
         onError(`Must upload a file of type: ${extensions.join(' or ')}`)
@@ -61,7 +49,7 @@ class FilePicker extends React.Component {
   }
 
   render() {
-    const {children, style} = this.props
+    const { children, style } = this.props
 
     return (
       <FileInput onChange={this._validate} style={style}>
@@ -69,6 +57,23 @@ class FilePicker extends React.Component {
       </FileInput>
     )
   }
+}
+
+FilePicker.propTypes = {
+  children: PropTypes.node.isRequired,
+  onChange: PropTypes.func.isRequired,
+  onError: PropTypes.func.isRequired,
+  // max file size in MB
+  maxSize: PropTypes.number,
+  // file extension
+  extensions: PropTypes.array,
+  // validate file contents
+  validateContent: PropTypes.func,
+  style: PropTypes.object
+}
+
+FilePicker.defaultProps = {
+  maxSize: 2
 }
 
 export default FilePicker

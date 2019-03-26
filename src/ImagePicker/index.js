@@ -14,19 +14,13 @@ import { FilePicker } from '..'
  */
 
 class UploadImage extends React.Component {
-  static propTypes = {
-    children: PropTypes.node.isRequired,
-    onChange: PropTypes.func.isRequired,
-    onError: PropTypes.func.isRequired,
-    dims: PropTypes.shape({
-      minWidth: PropTypes.number.isRequired,
-      maxWidth: PropTypes.number.isRequired,
-      minHeight: PropTypes.number.isRequired,
-      maxHeight: PropTypes.number.isRequired
-    }).isRequired
+  constructor(props) {
+    super(props)
+
+    this._handleImg = this._handleImg.bind(this)
   }
 
-  _handleImg = async file => {
+  async _handleImg(file) {
     // grab used props
     const { onChange, onError, dims } = this.props
 
@@ -54,6 +48,18 @@ class UploadImage extends React.Component {
       </FilePicker>
     )
   }
+}
+
+UploadImage.propTypes = {
+  children: PropTypes.node.isRequired,
+  onChange: PropTypes.func.isRequired,
+  onError: PropTypes.func.isRequired,
+  dims: PropTypes.shape({
+    minWidth: PropTypes.number.isRequired,
+    maxWidth: PropTypes.number.isRequired,
+    minHeight: PropTypes.number.isRequired,
+    maxHeight: PropTypes.number.isRequired
+  }).isRequired
 }
 
 export default UploadImage

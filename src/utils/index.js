@@ -1,2 +1,2 @@
-export loadImage from './load-image'
-export loadFile from './load-file'
+export { default as loadImage } from './load-image'
+export { default as loadFile } from './load-file'

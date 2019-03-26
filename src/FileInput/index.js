@@ -3,14 +3,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 class FileInput extends React.Component {
+  constructor(props) {
+    super(props)
 
-  static propTypes = {
-    style: PropTypes.object,
-    children: PropTypes.node.isRequired,
-    onChange: PropTypes.func.isRequired
+    this._handleUpload = this._handleUpload.bind(this)
   }
 
-  _handleUpload = evt => {
+  _handleUpload(evt) {
     const file = evt.target.files[0]
     this.props.onChange(file)
 
@@ -23,9 +22,9 @@ class FileInput extends React.Component {
       <div style={this.props.style}>
         <input
           type="file"
-          style={{display: 'none'}}
+          style={{ display: 'none' }}
           onChange={this._handleUpload}
-          ref={ele => this.fileInput = ele}
+          ref={ele => (this.fileInput = ele)}
         />
         {React.cloneElement(this.props.children, {
           onClick: () => this.fileInput.click()
@@ -33,6 +32,12 @@ class FileInput extends React.Component {
       </div>
     )
   }
+}
+
+FileInput.propTypes = {
+  style: PropTypes.object,
+  children: PropTypes.node.isRequired,
+  onChange: PropTypes.func.isRequired
 }
 
 export default FileInput

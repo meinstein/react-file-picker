@@ -1,6 +1,5 @@
 export default function loadFile(file) {
   return new Promise((resolve, reject) => {
-
     const reader = new FileReader()
 
     reader.readAsDataURL(file)

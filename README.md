@@ -4,7 +4,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/meinstein/react-file-picker/badge.svg?branch=master)](https://coveralls.io/github/meinstein/react-file-picker?branch=master)
 [![npm](https://img.shields.io/npm/v/react-file-picker.svg)](https://www.npmjs.com/package/react-file-picker)
 
-A simple wrapper around the native file input
+Sensible file input wrappers. Demo included.
 
 `npm i react-file-picker`
 
@@ -41,4 +41,10 @@ const MyComponent = () => (
     </button>
   </ImagePicker>
 )
+```
+
+## Demo
+
+```
+npm run demo
 ```

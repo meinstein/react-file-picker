@@ -2,5 +2,5 @@ node_modules
 npm-debug.log
 lib/
 coverage/
-/index.js
-/index.html
+.cache
+dist/

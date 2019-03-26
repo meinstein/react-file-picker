@@ -12,11 +12,19 @@ export default function loadImg(dataUrl, dims) {
     img.onload = () => {
       // validate the min and max image dimensions
       if (img.width < minWidth || img.height < minHeight) {
-        reject(new Error(`The uploaded image is too small. Must be at least ${minWidth}px by ${minHeight}px.`))
+        reject(
+          new Error(
+            `The uploaded image is too small. Must be at least ${minWidth}px by ${minHeight}px.`
+          )
+        )
       }
 
       if (img.width > maxWidth || img.height > maxHeight) {
-        reject(new Error(`The uploaded image is too large. Must be no more than ${maxWidth}px by ${maxHeight}px.`))
+        reject(
+          new Error(
+            `The uploaded image is too large. Must be no more than ${maxWidth}px by ${maxHeight}px.`
+          )
+        )
       }
 
       resolve(true)
