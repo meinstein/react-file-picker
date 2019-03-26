@@ -1,18 +1,14 @@
-# system setup
 sudo: required
 dist: trusty
 
-# language setup
 language: node_js
 node_js:
-  - "6"
+  - '10'
 
-# setup yarn
 cache:
-  yarn: true
+  yarn: npm
   directories:
     - node_modules
 
-# command to run tests
 script:
   - npm run test:coverage:report

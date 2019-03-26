@@ -37,7 +37,7 @@
     "@babel/runtime": "^7.4.0",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
-    "coveralls": "^2.13.1",
+    "coveralls": "^3.0.3",
     "enzyme": "^2.8.2",
     "eslint": "^4.0.0",
     "eslint-plugin-jest": "^20.0.3",
