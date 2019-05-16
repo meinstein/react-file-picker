@@ -10,8 +10,7 @@ class FileInput extends React.Component {
   }
 
   _handleUpload(evt) {
-    const file = evt.target.files[0]
-    this.props.onChange(file)
+    this.props.onChange(evt.target.files)
 
     // free up the fileInput again
     this.fileInput.value = null
@@ -25,7 +24,8 @@ class FileInput extends React.Component {
           style={{ display: 'none' }}
           onChange={this._handleUpload}
           ref={ele => (this.fileInput = ele)}
-        />
+          multiple={this.props.multiple}
+        />}
         {React.cloneElement(this.props.children, {
           onClick: () => this.fileInput.click()
         })}
@@ -37,7 +37,8 @@ class FileInput extends React.Component {
 FileInput.propTypes = {
   style: PropTypes.object,
   children: PropTypes.node.isRequired,
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
+  multiple: PropTypes.multiple
 }
 
 export default FileInput
