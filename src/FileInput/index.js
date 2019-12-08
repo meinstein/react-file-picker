@@ -21,7 +21,7 @@ class FileInput extends React.Component {
     return (
       <div style={this.props.style}>
         <input
-          accept={accept}
+          accept={this.props.accept}
           type="file"
           style={{ display: 'none' }}
           onChange={this._handleUpload}
