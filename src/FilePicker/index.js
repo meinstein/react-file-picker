@@ -39,11 +39,6 @@ class FilePicker extends React.Component {
     // convert maxSize from megabytes to bytes
     const maxBytes = maxSize * 1000000
 
-    if (file.size > maxBytes) {
-      onError(`File size must be less than ${maxSize} MB.`)
-      return
-    }
-
     // return native file object
     onChange(file)
   }
