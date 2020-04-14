@@ -1,3 +1,7 @@
+⚠️ ATTENTION ⚠️
+
+This project is no longer being maintained, as the file picker has been migrated to [`react-sage/useFilePicker`](https://github.com/meinstein/react-sage)
+
 # react-file-picker
 
 [![Build Status](https://travis-ci.org/meinstein/react-file-picker.svg?branch=master)](https://travis-ci.org/meinstein/react-file-picker)
