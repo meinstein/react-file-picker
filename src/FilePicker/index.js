@@ -11,48 +11,53 @@ class FilePicker extends React.Component {
     this._validate = this._validate.bind(this)
   }
 
-  _validate(file) {
-    const { onError, onChange, maxSize, extensions } = this.props
+  _validate(files) {
+    const { onError, onChange, maxSize, extensions, multiple } = this.props
 
     // make sure a file was provided in the first place
-    if (!file) {
+    if (!files) {
       onError('Failed to upload a file.')
       return
     }
 
-    // if we care about file extensions
-    if (extensions) {
-      const uploadedFileExt = file.name
-        .split('.')
-        .pop()
-        .toLowerCase()
-      const isValidFileExt = extensions
-        .map(ext => ext.toLowerCase())
-        .includes(uploadedFileExt)
+     // convert maxSize from megabytes to bytes
+     const maxBytes = maxSize * 1000000
 
-      if (!isValidFileExt) {
-        onError(`Must upload a file of type: ${extensions.join(' or ')}`)
+    for (var i=0; i < files.length; i++) {
+      const file = files[i]
+
+      console.log(file)
+
+        // if we care about file extensions
+      if (extensions) {
+        const uploadedFileExt = file.name
+          .split('.')
+          .pop()
+          .toLowerCase()
+        const isValidFileExt = extensions
+          .map(ext => ext.toLowerCase())
+          .includes(uploadedFileExt)
+
+        if (!isValidFileExt) {
+          onError(`Must upload a file of type: ${extensions.join(' or ')}`)
+          return
+        }
+      }
+      if (file.size > maxBytes) {
+        onError(`File size must be less than ${maxSize} MB.`)
         return
       }
     }
 
-    // convert maxSize from megabytes to bytes
-    const maxBytes = maxSize * 1000000
-
-    if (file.size > maxBytes) {
-      onError(`File size must be less than ${maxSize} MB.`)
-      return
-    }
-
-    // return native file object
-    onChange(file)
+    // return native file object or array
+    return multiple ? onChange(files) : onChange(files[0])
   }
 
   render() {
-    const { children, style } = this.props
+    const { children, style, multiple } = this.props
 
     return (
-      <FileInput onChange={this._validate} style={style}>
+      <FileInput onChange={this._validate} style={style} multiple={multiple}>
         {children}
       </FileInput>
     )
@@ -69,7 +74,9 @@ FilePicker.propTypes = {
   extensions: PropTypes.array,
   // validate file contents
   validateContent: PropTypes.func,
-  style: PropTypes.object
+  style: PropTypes.object,
+  // Allow for multiple file selection
+  multiple: PropTypes.multiple || false
 }
 
 FilePicker.defaultProps = {
