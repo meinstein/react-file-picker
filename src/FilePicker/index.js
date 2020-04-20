@@ -49,10 +49,11 @@ class FilePicker extends React.Component {
   }
 
   render() {
-    const { children, style } = this.props
+    const { children, style } = this.props;
+    const accept = this.props.extensions.map(ext => `.${ext}`).join(',')
 
     return (
-      <FileInput onChange={this._validate} style={style}>
+      <FileInput onChange={this._validate} style={style} accept={accept}>
         {children}
       </FileInput>
     )
