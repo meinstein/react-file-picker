@@ -21,7 +21,7 @@ const MyComponent = () => (
   <FilePicker
     extensions={['md']}
     onChange={FileObject => (/* do something with File object */)}
-    onError={errMsg => (/* do something with err msg string */)
+    onError={errMsg => (/* do something with err msg string */)}
   >
     <button>
       Click to upload markdown
@@ -38,7 +38,7 @@ const MyComponent = () => (
     extensions={['jpg', 'jpeg', 'png']}
     dims={{minWidth: 100, maxWidth: 500, minHeight: 100, maxHeight: 500}}
     onChange={base64 => (/* do something with base64 encoded string */)
-    onError={errMsg => (/* do something with err msg string */)
+    onError={errMsg => (/* do something with err msg string */)}
   >
     <button>
       Click to upload image
