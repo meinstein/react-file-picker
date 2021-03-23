@@ -22,6 +22,7 @@ const MyComponent = () => (
     extensions={['md']}
     onChange={FileObject => (/* do something with File object */)}
     onError={errMsg => (/* do something with err msg string */)
+    maxSize={5000} /* (optional) defaults to 2000 in kilobytes */
   >
     <button>
       Click to upload markdown
@@ -39,6 +40,7 @@ const MyComponent = () => (
     dims={{minWidth: 100, maxWidth: 500, minHeight: 100, maxHeight: 500}}
     onChange={base64 => (/* do something with base64 encoded string */)
     onError={errMsg => (/* do something with err msg string */)
+    maxSize={5000} /* (optional) defaults to 2000 in kilobytes */
   >
     <button>
       Click to upload image
