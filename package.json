@@ -30,7 +30,7 @@
   "author": "Maximillian Einstein",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "7.1.2",
+    "@babel/core": "7.20.7",
     "@babel/plugin-transform-runtime": "^7.4.0",
     "@babel/preset-env": "7.1.0",
     "@babel/preset-react": "7.0.0",
@@ -43,14 +43,14 @@
     "eslint-plugin-jest": "^20.0.3",
     "eslint-plugin-react": "^7.1.0",
     "jest": "^24.0.0",
-    "parcel": "^1.12.3",
+    "parcel": "^2.8.2",
     "prettier": "^1.16.4",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-test-renderer": "^15.6.1",
-    "webpack": "4.23.1",
-    "webpack-cli": "^3.3.0"
+    "webpack": "5.75.0",
+    "webpack-cli": "^5.0.1"
   },
   "babel": {
     "presets": [
